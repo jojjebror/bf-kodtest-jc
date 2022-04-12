@@ -1,0 +1,48 @@
+<div class="container" *ngFor="let item of this.postData">
+    <mat-card class="mat-elevation-z1">
+        <div class="author-info">
+            <span class="watermark">r/sweden</span>
+            <span>
+                <img src="{{bfLogo}}" class="bf-logo" />
+                {{item.author}}
+
+            </span>
+            <span>
+                <mat-icon>thumb_up</mat-icon> {{item.score}}
+            </span>
+            <span>
+                <mat-icon>date_range</mat-icon> {{item.created *
+                1000
+                | date: 'd MMMM, y, HH:mm'}}
+            </span>
+        </div>
+        <div class="info-title">
+            {{item.title}}
+        </div>
+        <div class="post-selftext">{{item.selftext}}</div>
+        <div class="post-img" *ngIf="item.thumbnail != 'self'">
+            <img src={{item.thumbnail}} />
+        </div>
+    </mat-card>
+    <div *ngFor="let comment of this.comments">
+        <mat-card class="mat-elevation-z4">
+            <div class="comment-author">
+                <img src="{{bfLogo}}" class="bf-logo" /> {{comment.data.author}} <a>skrev,
+                    den
+                </a>
+                {{comment.data.created *
+                1000
+                | date: 'd MMMM, y, HH:mm'}}
+                <span class="comment-author-score">
+                    <mat-icon>thumb_up</mat-icon> {{comment.data.score}}
+                </span>
+
+            </div>
+            <mat-card-content>
+                <div class="comment-text">
+                    {{comment.data.body}}
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

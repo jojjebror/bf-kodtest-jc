@@ -1,0 +1,132 @@
+.mat-card:hover {
+    background-color: whitesmoke;
+    transition: all 0.5s ease;
+}
+
+.mat-card {
+    padding: 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 16px;
+}
+
+.post-selftext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    font-weight: 500;
+    padding: 20px;
+    color: #f23001;
+}
+
+.info-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    font-weight: 500;
+    padding: 20px;
+    color: #1b9afcc8;
+}
+
+a {
+    color: #1b9afcc8;
+}
+
+.date {
+    color: #f23001;
+}
+
+.comment-author {
+    font-weight: 500;
+    position: relative;
+    color: #f23001;
+    font-size: 14px;
+    padding: 0 20px 0 20px;
+}
+
+.mat-icon {
+    vertical-align: sub;
+    color: #1b9afcc8;
+    ;
+}
+
+.comment-author-score {
+    margin-left: 15px;
+}
+
+.bf-logo {
+    width: 28px;
+    height: 28px;
+    vertical-align: sub;
+}
+
+.post-img {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.watermark {
+    font-size: 12px;
+    color: rgba(128, 128, 128, 0.383);
+}
+
+.author-info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    font-weight: 500;
+    color: grey;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.comment-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    font-weight: 500;
+    padding: 20px 0 0 20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .author-info,
+    .info-title,
+    .post-selftext,
+    .comment-author,
+    .comment-text,
+    .watermark {
+        font-size: 11px;
+    }
+
+    .comment-author {
+        padding: 0;
+    }
+
+    .author-info {
+        justify-content: space-evenly;
+    }
+
+    .mat-card {
+        padding: 5px;
+    }
+
+
+}

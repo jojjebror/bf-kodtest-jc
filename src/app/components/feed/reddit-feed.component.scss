@@ -1,0 +1,116 @@
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.mat-card:hover {
+  background-color: whitesmoke;
+  transition: all 0.5s ease;
+}
+
+.feed {
+  padding: 16px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-width: 600px;
+  margin: auto;
+  display: flexbox;
+
+}
+
+.img-thumbnail {
+  border-radius: 1em;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.label {
+  color: #1b9afcc8;
+}
+
+.entries-select {
+  width: 100px;
+  padding: 20px;
+}
+
+.author {
+  position: relative;
+  margin-left: -55px;
+  padding-right: 40px;
+  color: #f23001;
+  font-weight: 500;
+}
+
+.score,
+.date {
+  position: relative;
+  padding-right: 40px;
+  color: #f23001;
+  font-weight: 500;
+}
+
+.comments {
+  font-size: 14px;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: -40px;
+  color: #f23001;
+}
+
+.header {
+  font-size: 16px;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+
+.mat-icon {
+  vertical-align: sub;
+  color: #1b9afcc8;
+}
+
+.feed-btn {
+  background-color: #0058ff;
+  color: white;
+  font-size: 12px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  margin-right: 10px;
+}
+
+.feed-btn:hover {
+  background-color: #3e7bee;
+}
+
+.bf-logo {
+  width: 28px;
+  height: 28px;
+  vertical-align: sub;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 11px;
+    padding: 0 15px 0 15px;
+  }
+
+  .author {
+    padding-left: 15px;
+  }
+
+  .title {
+    font-size: 11px;
+  }
+
+  .label,
+  .entries-select {
+    font-size: 12px;
+    color: #1b9afcc8;
+  }
+}

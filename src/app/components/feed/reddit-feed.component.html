@@ -1,0 +1,49 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="navigation">
+  <mat-label class="label">
+    Visa antal
+  </mat-label>
+  <mat-select [value]="entry" (valueChange)="onEntriesChanged($event)" class="entries-select">
+    <mat-option *ngFor="let entry of entries" [value]="entry">{{entry}}</mat-option>
+  </mat-select>
+  <button class="feed-btn" mat-raised-button
+    (click)="this.changePage('before', redditFeedData.after)">Föregående</button>
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <button class="feed-btn" mat-raised-button (click)="this.changePage('after', redditFeedData.after)">Nästa</button>
+</div>
+
+<div class="feed" *ngFor="let childElem of childDataList">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header class="header">
+      <div class="author">
+        <img src="{{bfLogo}}" class="bf-logo" /> {{childElem.data.author}}
+      </div>
+      <div class="score">
+        <mat-icon>thumb_up</mat-icon> {{childElem.data.score}}
+      </div>
+      <div class="date">
+        <mat-icon>date_range</mat-icon> {{childElem.data.created * 1000 | date: 'd MMMM, y'}}
+      </div>
+    </mat-card-header>
+    <hr>
+    <div *ngIf="childElem.data.thumbnail != 'self'">
+      <img class="img-thumbnail" src={{childElem.data.thumbnail}} />
+    </div>
+    <mat-card-content>
+      <div class="title">
+        {{childElem.data.title}}
+      </div>
+    </mat-card-content>
+    <div class="comments">
+      <mat-icon>comment</mat-icon> {{childElem.data.num_comments + " kommentarer"}}
+    </div>
+    <mat-card-actions align="end">
+
+      <button class="feed-btn" [value]="childElem.data.url" mat-raised-button
+        (click)="getDialogData(childElem.data.permalink, childElem.data.id, childElem.data.title); openDialog()">GÅ TILL
+        INLÄGG</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
