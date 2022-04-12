@@ -72,11 +72,16 @@ a {
     vertical-align: sub;
 }
 
-.post-img {
+.thumbnail{
+    border-radius: 1em;
+}
+
+.img-container {
     align-items: center;
     justify-content: center;
     display: flex;
     padding-bottom: 20px;
+    border-radius: 1em;
 }
 
 .watermark {

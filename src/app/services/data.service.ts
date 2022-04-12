@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Constants } from 'src/app/config/url-enums';
+import { UrlConstants } from 'src/app/config/url-constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,9 +11,9 @@ export class DataService {
   constructor(public httpClient: HttpClient) { }
 
   getRedditFeed(entries: number, page: any,) {
-    let url = (Constants.filter_url + entries);
+    let url = (UrlConstants.filter_url + entries);
     if (page == null || page == '') {
-      url = Constants.filter_url + entries;
+      url = UrlConstants.filter_url + entries;
     }
     else {
       url = (url + '&' + page);
@@ -23,8 +23,7 @@ export class DataService {
   }
 
   getRedditFeedPost(url: string): Observable<any> {
-    console.log(Constants.base_url + url)
-    return this.httpClient.get<any>(Constants.base_url + url + '.json')
+    return this.httpClient.get<any>(UrlConstants.base_url + url + '.json')
   }
 
 }

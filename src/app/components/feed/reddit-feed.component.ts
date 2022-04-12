@@ -17,7 +17,6 @@ export class RedditFeedComponent implements OnInit {
   childDataList: any = [];
   redditFeedData: any = [];
   error: string;
-  pageObj: any;
   dataObj: any;
   pageIdentifier: string;
   bfLogo = 'assets/icons/bannerflow.png';
@@ -65,7 +64,7 @@ export class RedditFeedComponent implements OnInit {
           for (let children of this.redditFeedData.children) {
             this.childDataList.push(children);
           }
-          console.log('Fetched feed successful');
+          console.log('Fetched feed successfully');
         }
         error => {
           console.log(error)

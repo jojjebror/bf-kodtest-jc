@@ -27,7 +27,7 @@
       </div>
     </mat-card-header>
     <hr>
-    <div *ngIf="childElem.data.thumbnail != 'self'">
+    <div *ngIf="childElem.data.thumbnail != 'self' && !childElem.data.spoiler && childElem.data.thumbnail != 'nsfw'">
       <img class="img-thumbnail" src={{childElem.data.thumbnail}} />
     </div>
     <mat-card-content>
