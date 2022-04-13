@@ -6,11 +6,10 @@
   <mat-select [value]="entry" (valueChange)="onEntriesChanged($event)" class="entries-select">
     <mat-option *ngFor="let entry of entries" [value]="entry">{{entry}}</mat-option>
   </mat-select>
-  <button class="feed-btn" mat-raised-button
-    (click)="this.changePage('before', redditFeedData.after)">Föregående</button>
+  <button *ngIf="!isEmpty" class="feed-btn" mat-raised-button (click)="this.gotoPrevious('before=')">Föregående</button>
   <mat-divider [vertical]="true"></mat-divider>
 
-  <button class="feed-btn" mat-raised-button (click)="this.changePage('after', redditFeedData.after)">Nästa</button>
+  <button class="feed-btn" mat-raised-button (click)="this.gotoNext('after=')">Nästa</button>
 </div>
 
 <div class="feed" *ngFor="let childElem of childDataList">
@@ -27,7 +26,8 @@
       </div>
     </mat-card-header>
     <hr>
-    <div *ngIf="childElem.data.thumbnail != 'self' && !childElem.data.spoiler && childElem.data.thumbnail != 'nsfw'">
+    <div
+      *ngIf="childElem.data.thumbnail != 'self' && !childElem.data.spoiler && childElem.data.thumbnail != 'nsfw' && childElem.data.thumbnail != 'default'">
       <img class="img-thumbnail" src={{childElem.data.thumbnail}} />
     </div>
     <mat-card-content>
@@ -40,7 +40,7 @@
     </div>
     <mat-card-actions align="end">
 
-      <button class="feed-btn" [value]="childElem.data.url" mat-raised-button
+      <button class="feed-btn" mat-raised-button
         (click)="getDialogData(childElem.data.permalink, childElem.data.id, childElem.data.title); openDialog()">GÅ TILL
         INLÄGG</button>
     </mat-card-actions>

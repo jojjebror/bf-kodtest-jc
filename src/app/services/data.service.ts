@@ -10,20 +10,18 @@ export class DataService {
 
   constructor(public httpClient: HttpClient) { }
 
-  getRedditFeed(entries: number, page: any,) {
+  getRedditFeedData(entries: number, page: string): Observable<any> {
     let url = (UrlConstants.filter_url + entries);
-    if (page == null || page == '') {
+    if (page == undefined) {
       url = UrlConstants.filter_url + entries;
     }
     else {
       url = (url + '&' + page);
     }
-
     return this.httpClient.get<any>(url);
   }
 
-  getRedditFeedPost(url: string): Observable<any> {
+  getRedditPostData(url: string): Observable<any> {
     return this.httpClient.get<any>(UrlConstants.base_url + url + '.json')
   }
-
 }

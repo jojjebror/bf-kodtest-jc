@@ -20,7 +20,8 @@
             {{item.title}}
         </div>
         <div class="post-selftext">{{item.selftext}}</div>
-        <div class="img-container" *ngIf="item.thumbnail != 'self' && item.thumbnail != 'nsfw' && !item.thumbnail.spoiler">
+        <div class="img-container"
+            *ngIf="item.thumbnail != 'self' && item.thumbnail != 'nsfw' && !item.thumbnail.spoiler">
             <img class="thumbnail" src={{item.thumbnail}} />
         </div>
     </mat-card>

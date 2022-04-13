@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { Subscription } from 'rxjs/';
 import { DataService } from 'src/app/services/data.service';
@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './feed-post.component.html',
   styleUrls: ['./feed-post.component.scss']
 })
-export class FeedPostComponent implements OnInit {
+export class FeedPostComponent implements OnInit, OnDestroy {
   comments: any = [];
   postData: any = [];
   redditData: any = [];
@@ -22,7 +22,11 @@ export class FeedPostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sub = this.dataService.getRedditFeedPost(this.data.url)
+    this.getRedditPost();
+  }
+
+  getRedditPost() {
+    this.sub = this.dataService.getRedditPostData(this.data.url)
       .subscribe(result => {
         {
           this.getData(false, result);
@@ -47,7 +51,10 @@ export class FeedPostComponent implements OnInit {
       data = redditObj[1].data.children
       this.comments = data;
     }
-    return data;
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }
