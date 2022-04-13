@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UrlConstants } from 'src/app/config/url-constants';
+import { UrlConstants } from 'src/app/enum/url-constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
