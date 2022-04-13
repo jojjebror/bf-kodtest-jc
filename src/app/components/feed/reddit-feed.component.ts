@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { Observable, Subject, Subscription } from 'rxjs';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 import { FeedPostComponent } from '../feed-post/feed-post.component';
 import { DataService } from 'src/app/services/data.service';
 
@@ -13,7 +13,7 @@ export class RedditFeedComponent implements OnInit, OnDestroy {
 
   private sub: Subscription
   entries: number[] = [5, 10, 25];
-  entry: number = this.entries[0];
+  entry: number = this.entries[2];
   childDataList: any = [];
   redditFeedData: any = [];
   idNameList: any = [];
